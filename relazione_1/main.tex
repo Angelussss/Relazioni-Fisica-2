@@ -34,9 +34,6 @@ Di seguito è riportato il materiale necessario per l’esperimento:
     \item \textbf{Legge di Kirchhoff delle tensioni}: \(\sum_{k=1}^{n} V_k = 0\), ossia la somma algebrica delle tensioni in una maglia è nulla.
     \item \textbf{Teorema di Millman}: \( V_0 = \frac{\sum_{k=1}^{n} \frac{V_k}{R_k}}{\sum_{k=1}^{n} \frac{1}{R_k}} \), ovvero la tensione ai terminali di un nodo comune a \( n \) rami è il rapporto tra la somma delle tensioni divise per le rispettive resistenze e la somma dei reciproci delle resistenze.
 \end{itemize}
-
-\newpage
-
 \section{Esperimento 1: misura di tensione}
 
 \subsection{Procedura Sperimentale}
@@ -60,37 +57,40 @@ Di seguito è riportato il materiale necessario per l’esperimento:
     \end{circuitikz}
     \caption{Circuito partitore di tensione.}
 \end{figure}
-
+\newpage
 \subsection{Risultati}
 
 La tabella seguente riporta i valori di tensione misurati e il confronto con i valori teorici per diverse configurazioni di \( R_1 \) e \( R_2 \):
 
 \begin{center}
-\begin{tabular}{ c | c | c | c }
+\begin{tabular}{ c | c | c | c | c}
 
-Test & $R_1$ & $R_2$ & $V_{R_2}$ (misurato) \\ 
+Test & $R_1$ & $R_2$ & $V_{R_2}$ (misurato) & V$_{expected}$ \\ 
 \hline
-1 & \(1 \, \text{k}\Omega\) & \(1 \, \text{k}\Omega\) & 2.99 V \\ 
+1 & \(1 \, \text{k}\Omega\) & \(1 \, \text{k}\Omega\) & 2.99 V & 3V\\ 
 \hline
-2 & \(1 \, \text{k}\Omega\) & \(500 \, \Omega\) & 1.99 V \\
+2 & \(1 \, \text{k}\Omega\) & \(500 \, \Omega\) & 1.99 V & 2V\\
 \hline
-3 & \(10 \, \text{k}\Omega\) & \(10 \, \text{k}\Omega\) & 2.99 V \\
+3 & \(10 \, \text{k}\Omega\) & \(10 \, \text{k}\Omega\) & 2.99 V & 3V\\
 \hline
-4 & \(100 \, \text{k}\Omega\) & \(100 \, \text{k}\Omega\) & 2.98 V \\
+4 & \(100 \, \text{k}\Omega\) & \(100 \, \text{k}\Omega\) & 2.98 V & 3V\\
 \hline
-5 & \(1 \, \text{M}\Omega\) & \(1 \, \text{M}\Omega\) & 2.84 V \\
+5 & \(1 \, \text{M}\Omega\) & \(1 \, \text{M}\Omega\) & 2.84 V & 3V\\
 \hline
-6 & \(10 \, \text{M}\Omega\) & \(10 \, \text{M}\Omega\) & 1.84 V \\
+6 & \(10 \, \text{M}\Omega\) & \(10 \, \text{M}\Omega\) & 1.84 V & 3V\\
 
 \end{tabular}
 \end{center}
 
 \subsection{Analisi e Discussione} 
-Per valori resistivi elevati (\(\text{M}\Omega\)), la tensione misurata risulta inferiore al valore teorico, effetto dovuto alla resistenza interna del multimetro che introduce un carico addizionale. Assumendo \( R_{\text{int}} \) nell’ordine dei megaohm, abbiamo stimato che esso altera il circuito, spiegando le variazioni osservate.
-attorno ai 10 MOhm
+I risultati delle misurazioni mostrano una buona corrispondenza con i valori teorici per configurazioni di resistenze con valori bassi e medi. Tuttavia, quando vengono utilizzate resistenze elevate (nell’ordine dei megaohm), si osserva che la tensione misurata è inferiore rispetto al valore previsto teoricamente.
 
+Questa discrepanza è attribuibile alla resistenza interna del multimetro, che si comporta come un carico addizionale nel circuito. La resistenza interna del multimetro è infatti confrontabile con i valori elevati dei resistori utilizzati in questi casi, introducendo un effetto di divisione di tensione non trascurabile.
 
-\newpage
+Considerando una resistenza interna stimata nell’ordine di diversi megaohm, è possibile spiegare la diminuzione della tensione misurata ai capi del secondo resistore. Questo fenomeno evidenzia l’importanza di considerare le specifiche tecniche degli strumenti di misura, in particolare per configurazioni con elevati valori resistivi.
+
+\subsection{Conclusione}
+La verifica del partitore di tensione ha confermato la validità della teoria, mostrando una corrispondenza tra i valori teorici e quelli misurati per resistenze basse e medie. Tuttavia, per valori resistivi elevati (nell’ordine dei megaohm), la tensione misurata ha mostrato una deviazione dai valori teorici. Ciò è stato attribuito alla resistenza interna del multimetro, che ha introdotto un carico addizionale sul circuito. 
 
 \section{Esperimento 2: teorema di Millman}
 \subsection{Procedura Sperimentale}
@@ -180,6 +180,9 @@ Pertanto, la corrente di lato attraverso il resistore da \(10 \, \text{k}\Omega\
 
 Questa corrente conferma il bilancio delle correnti nel nodo e rispetta la legge di Kirchhoff.
 
+\subsection{Conclusione}
+L’esperimento ha dimostrato la validità del Teorema di Millman, con la tensione calcolata teoricamente corrispondente ai valori sperimentali misurati. L’applicazione delle leggi di Kirchhoff ha inoltre confermato il bilancio delle correnti nel nodo, validando ulteriormente i principi teorici. La capacità di calcolare tensioni e correnti nei circuiti complessi è stata consolidata attraverso la verifica pratica del teorema.
+
 \section{Esperimento 3: Legge di Ohm}
 \subsection{Procedura Sperimentale}
 Lo scopo dell’esercizio è quello di misurare il rapporto corrente/tensione riguardo al circuito in Figura 3, composto da un resistore da $500\Omega$ e da una tensione di Vs che assume valori diversi, i risultati delle misurazioni sono riportati in tabella.
@@ -212,42 +215,61 @@ Lo scopo dell’esercizio è quello di misurare il rapporto corrente/tensione ri
     \label{fig:circuito}
 \end{minipage}
 \end{figure} 
+\newpage
 
 \subsection{Risultati}
 \begin{figure}[ht]
     \centering
-    \begin{minipage}{0.45\textwidth}
+    \begin{minipage}{0.35\textwidth}
         \centering
-        \begin{tabular}{c|c|c|c}
+        \begin{tabular}{c|c|c|c|c}
             \toprule
-            $V_s$ [V] & $I_s$ [mA] & $I_t$ [mA] & $\frac{I_s}{V_s}$ \\
+            $V_s$ [V] & $I_s$ [mA] & $I_t$ [mA] & ${I_s}/{V_s}$ &I_t/V\\
+            \hline
             \midrule
-            1    & 2.02  & 2    & 2.02  \\
-            2    & 4.04  & 4    & 2.02  \\
-            3    & 6.07  & 6    & 2.02  \\
-            4    & 8.08  & 8    & 2.02  \\
-            5    & 10.1  & 10   & 2.02  \\
-            6    & 12.1  & 12   & 2.02  \\
-            7    & 14.1  & 14   & 2.02  \\
-            8    & 16.2  & 16   & 2.02  \\
+            1    & 2.02  & 2    & 2.02  & 2\\
+            \hline
+            2    & 4.04  & 4    & 2.02  & 2\\
+            \hline
+            3    & 6.07  & 6    & 2.02  & 2\\
+            \hline
+
+            4    & 8.08  & 8    & 2.02  & 2\\
+            \hline
+
+            5    & 10.1  & 10   & 2.02  & 2\\
+            \hline
+
+            6    & 12.1  & 12   & 2.02  & 2\\
+            \hline
+
+            7    & 14.1  & 14   & 2.02  & 2\\
+            \hline
+
+            8    & 16.2  & 16   & 2.02  & 2\\
             \bottomrule
         \end{tabular}
     \end{minipage}%
     \hspace{0.05\textwidth}
-    \begin{minipage}{0.45\textwidth}
+    \begin{minipage}{0.59\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{immagine1.jpg}
+        \includegraphics[width=\linewidth]{immagine1.png}
         \caption{Grafico corrente-tensione con regressione lineare sui dati}
         \label{fig:immagine}
     \end{minipage}
 \end{figure}
 \subsection{Analisi e Discussione}
-Per la misura della corrente nel circuito (Is) vengono presi otto valori diversi di Vs variabili tra 1 e 8 V. La leggera variazione tra i valori misurati di corrente e quelli teorici (It) sono causati dal valore di tolleranza presente nel resistore in questione. Questi ultimi sono stati ottenuti applicando la legge di Ohm, secondo la quale il valore di corrente che attraversa il resistore è pari alla tensione a cui e sotto posto diviso la sua resistenza:
-\[
-    It=\frac{V_s}{R}
-\]
-Vediamo come, applicando la legge in questione, il rapporto tra corrente e tensione risulta sempre circa uguale a 2, questo perché esse sono legate da un rapporto di proporzionalità diretta. Il valore ricavato è chiamato conduttanza, si misura in siemens ed esprime l’attitudine di un conduttore ad essere percorso da corrente elettrica. 
-\section{Conclusioni}
+L’esperimento si è basato sull’applicazione della Legge di Ohm, che stabilisce che la corrente  I  che attraversa un resistore è direttamente proporzionale alla tensione  V  applicata ai suoi capi e inversamente proporzionale alla resistenza  R  del componente:
+$I = \frac{V}{R}$
+
+Questa relazione implica che, in un circuito lineare, il rapporto $\frac{V}{I}$ rimane costante ed è pari alla resistenza del resistore, mentre il reciproco di tale valore è noto come conduttanza ( G ), misurata in Siemens.
+
+Durante l’esperimento, sono stati raccolti valori di corrente misurati ( $I_s$ ) e teorici ( $I_t$ ), confrontando questi ultimi con i valori calcolati dalla relazione  $I_t = \frac{V_s}{R}$. I risultati dimostrano che il rapporto tra tensione e corrente si mantiene costante, con lievi discrepanze tra i valori misurati e teorici, ottenuti applicando la legge di Ohm.
+Vediamo come, applicando la legge in questione, il rapporto tra corrente e tensione risulta sempre circa uguale a 2, questo perché esse sono legate da un rapporto di proporzionalità diretta. Il valore ricavato è chiamato conduttanza, si misura in siemens ed esprime l’attitudine di un conduttore ad essere percorso da corrente elettrica.
+
+\subsection{Conclusione}
+L’analisi del circuito resistivo ha confermato che il rapporto tra corrente e tensione è costante, come previsto dalla Legge di Ohm. Il valore sperimentale della conduttanza è risultato prossimo a quello teorico, con leggere discrepanze attribuibili alla tolleranza del resistore utilizzato. La relazione lineare tra tensione e corrente, evidenziata anche graficamente, ha fornito un riscontro chiaro della proporzionalità diretta descritta dalla legge.
+
+%\section{Conclusioni}
 %bo figata lo rifarei solo per sentire le storie di contrabbando del daddy proibito
-Al termine dell’esperienza di laboratorio il gruppo ha sviluppato la capacità di operare in ambito elettrico, prendendo confidenza con quelli che sono i principali strumenti di lavoro, come ad esempio la breadboard, il generatore di tensione/corrente e il multimetro. Inoltre, è stato possibile verificare sperimentalmente i teoremi e le relazioni base tra i componenti visti a lezione. Durante la realizzazione dei vari circuiti non sono sorte particolari problematiche.
 \end{document}
