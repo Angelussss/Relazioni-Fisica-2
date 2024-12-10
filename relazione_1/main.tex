@@ -1,0 +1,253 @@
+\input{preamble}
+\input{format}
+\input{commands}
+\begin{document}
+\setlist{itemsep=.5em}
+\begin{Huge}
+\textsf{\textbf{Fisica 2 (Teoria dei Circuiti)}}\\
+Esperienza 1
+\end{Huge}
+
+\vspace{1ex}
+
+\textsf{\textbf{Studenti:}} \text{Angelo Perotti},  \text{Mattia Zagatti}, \text{Mattia Dolci}
+
+\vspace{2ex}
+
+\section{Introduzione}
+
+Lo scopo di questa esperienza di laboratorio è stato mettere in pratica le nozioni apprese durante le lezioni teoriche, osservando concretamente il comportamento dei circuiti studiati e delle strumentazioni. In particolare, abbiamo verificato la legge di Ohm, le leggi di Kirchhoff e il teorema di Millman. Durante l’esperienza abbiamo anche acquisito familiarità con l’utilizzo della strumentazione di base, come l’alimentatore e il multimetro, necessarie per eseguire misurazioni accurate e analizzare i circuiti.
+
+\section{Materiale Utilizzato}
+Di seguito è riportato il materiale necessario per l’esperimento:
+\begin{itemize}
+    \item \textbf{Componenti elettronici}: resistori (\(1 \, \text{k}\Omega\), \(10 \, \text{k}\Omega\), \(100 \, \text{k}\Omega\), \(1 \, \text{M}\Omega\), \(10 \, \text{M}\Omega\)), breadboard.
+    \item \textbf{Strumenti di misura}: multimetro digitale, alimentatore da banco.
+    \item \textbf{Cavi}: cavi banana-banana, cavi jumper.
+\end{itemize}
+
+\section{Cenni Teorici}
+
+\begin{itemize}
+    \item \textbf{Legge di Ohm}: \( V = R \cdot I \), che rappresenta la relazione caratteristica dei resistori.
+    \item \textbf{Prima legge di Kirchhoff delle correnti}: \(\sum_{e=1}^{n} i_e = \sum_{u=1}^{m} i_u\), ovvero la somma delle correnti entranti in un nodo è uguale alla somma delle correnti uscenti.
+    \item \textbf{Legge di Kirchhoff delle tensioni}: \(\sum_{k=1}^{n} V_k = 0\), ossia la somma algebrica delle tensioni in una maglia è nulla.
+    \item \textbf{Teorema di Millman}: \( V_0 = \frac{\sum_{k=1}^{n} \frac{V_k}{R_k}}{\sum_{k=1}^{n} \frac{1}{R_k}} \), ovvero la tensione ai terminali di un nodo comune a \( n \) rami è il rapporto tra la somma delle tensioni divise per le rispettive resistenze e la somma dei reciproci delle resistenze.
+\end{itemize}
+
+\newpage
+
+\section{Esperimento 1: misura di tensione}
+
+\subsection{Procedura Sperimentale}
+
+È stato realizzato un partitore di tensione su breadboard (Figura 1), con un generatore da \(6 \, \text{V}\), due resistori in serie e un multimetro in parallelo al secondo resistore. Impostati i limiti di corrente e tensione del generatore a \(6 \, \text{mA}\) e \(6 \, \text{V}\), si è attivato il generatore e misurata la tensione ai capi del secondo resistore. Successivamente, si è variata la coppia di resistori per ogni misurazione.
+
+\begin{figure}[h!] % Ambiente figure per centrare e aggiungere didascalia
+    \centering % Centra l'immagine
+    \begin{circuitikz}
+        % Disegna la sorgente di tensione Vs
+        \draw
+        (0,0) to[battery, l_=$V_s$] (0,3)
+        % Resistenza R1
+        -- (2,3) to[R=$R_1$] (4,3)
+        % Punto di giunzione tra R1 e R2
+        -- (4,1.5) to[R=$R_2$] (4,0)
+        % Collegamento alla massa (ground)
+        -- (0,0)
+        % Voltmetro in parallelo a R2
+        (4,1.5) -- (5.5,1.5) to[voltmeter, l=$V$] (5.5,0) -- (4,0);
+    \end{circuitikz}
+    \caption{Circuito partitore di tensione.}
+\end{figure}
+
+\subsection{Risultati}
+
+La tabella seguente riporta i valori di tensione misurati e il confronto con i valori teorici per diverse configurazioni di \( R_1 \) e \( R_2 \):
+
+\begin{center}
+\begin{tabular}{ c | c | c | c }
+
+Test & $R_1$ & $R_2$ & $V_{R_2}$ (misurato) \\ 
+\hline
+1 & \(1 \, \text{k}\Omega\) & \(1 \, \text{k}\Omega\) & 2.99 V \\ 
+\hline
+2 & \(1 \, \text{k}\Omega\) & \(500 \, \Omega\) & 1.99 V \\
+\hline
+3 & \(10 \, \text{k}\Omega\) & \(10 \, \text{k}\Omega\) & 2.99 V \\
+\hline
+4 & \(100 \, \text{k}\Omega\) & \(100 \, \text{k}\Omega\) & 2.98 V \\
+\hline
+5 & \(1 \, \text{M}\Omega\) & \(1 \, \text{M}\Omega\) & 2.84 V \\
+\hline
+6 & \(10 \, \text{M}\Omega\) & \(10 \, \text{M}\Omega\) & 1.84 V \\
+
+\end{tabular}
+\end{center}
+
+\subsection{Analisi e Discussione} 
+Per valori resistivi elevati (\(\text{M}\Omega\)), la tensione misurata risulta inferiore al valore teorico, effetto dovuto alla resistenza interna del multimetro che introduce un carico addizionale. Assumendo \( R_{\text{int}} \) nell’ordine dei megaohm, abbiamo stimato che esso altera il circuito, spiegando le variazioni osservate.
+attorno ai 10 MOhm
+
+
+\newpage
+
+\section{Esperimento 2: teorema di Millman}
+\subsection{Procedura Sperimentale}
+\begin{figure}[h]
+\begin{minipage}[t]{0.5\textwidth} % Regola la larghezza del minipage per il testo
+\vspace{0pt}
+    \raggedright % Allinea a sinistra
+    Nella seconda parte di questa esperienza di laboratorio è stato illustrato il teorema di Millman, derivato dalle leggi di Kirchhoff, che permette di calcolare la tensione ai capi di un nodo comune ad $n$ rami con generatori di tensione e resistenze in parallelo. Il teorema è stato poi verificato sperimentalmente costruendo il circuito mostrato in Figure 2.\\
+    \vspace{0.05\textwidth}
+    Il circuito è stato realizzato con tre generatori di tensione connessi ciascuno in serie a un resistore da $1 \, \text{k}\Omega$, e una resistenza da $10 \, \text{k}\Omega$ collegata in parallelo ai tre rami. Il multimetro, configurato come amperometro, è stato usato per misurare la corrente nei rami con i generatori, e successivamente è stata misurata la tensione ai capi della resistenza da $10 \, \text{k}\Omega$. I risultati delle misurazioni sono riportati nella seguente tabella.
+\end{minipage}%
+\hspace{0.05\textwidth} % Spazio tra il testo e l'immagine
+\begin{minipage}[t]{0.4\textwidth} % Regola la larghezza del minipage per l'immagine
+\vspace{0pt}
+    \centering
+    \resizebox{1.2\textwidth}{!}{%
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\LARGE]
+\draw (8.75,14.75) to[battery1] (8.75,17.25);
+\draw (6.25,17.25) to[battery1] (6.25,14.75);
+\draw (3.75,17.25) to[battery1] (3.75,14.75);
+\draw (3.75,17.25) to[R] (3.75,19.75);
+\draw (6.25,17.25) to[R] (6.25,19.75);
+\draw (8.75,17.25) to[R] (8.75,19.75);
+\draw (3.75,19.75) to[rmeter, t=A] (3.75,21);
+\draw (6.25,19.75) to[rmeter, t=A] (6.25,21);
+\draw (8.75,19.75) to[rmeter, t=A] (8.75,21);
+\draw (3.75,21) to[short] (8.75,21);
+\draw (3.75,14.75) to[short] (8.75,14.75);
+\draw (8.75,14.75) to[short] (11.25,14.75);
+\draw (11.25,16) to[R] (11.25,18.5);
+\draw (11.25,14.75) to[short] (11.25,16);
+\draw (11.25,16) to[short] (13.75,16);
+\draw (13.75,18.5) to[short] (11.25,18.5);
+\draw (11.25,18.5) to[short] (11.25,21);
+\draw (11.25,21) to[short] (8.75,21);
+\draw (13.75,18.5) to[rmeter, t=V] (13.75,16);
+\draw (7.5,14.75) to (7.5,13.5) node[sground]{};
+\node [font=\LARGE] at (2.5,18.25) {1K$\Omega$};
+\node [font=\LARGE] at (2.5,16.25) {8V};
+\node [font=\LARGE] at (5,16.25) {5V};
+\node [font=\LARGE] at (5,18.25) {1K$\Omega$};
+\node [font=\LARGE] at (7.5,18.25) {1K$\Omega$};
+\node [font=\LARGE] at (7.5,16.25) {3V};
+\node [font=\LARGE] at (10,17.25) {10K$\Omega$};
+\end{circuitikz}
+}%
+    \caption{Circuito utilizzato per l'esperimento.}
+    \label{fig:circuito}
+\end{minipage}
+\end{figure}
+
+
+\subsection{Risultati}
+\begin{center}
+        \begin{tabular}{c|c|c}
+        Ramo misurato &  Tensione & Corrente\\
+        \hline
+         1 Ramo & +8V & +1,7mA \\
+    \hline
+         2 Ramo & +5V & +4,7mA \\
+    \hline
+         3 Ramo & -3V & -6,05mA
+    \end{tabular}
+\end{center}
+
+\subsection{Analisi e Discussione}
+Applichiamo Millman utilizzando i risultati ottenuti sperimentalmente:
+\begin{center}
+    \resizebox{0.6\textwidth}{!}{
+    $V_0=\dfrac{\sum_i\dfrac{V_c}{R_c}}{\sum_i\dfrac{1}{R_i}}=\dfrac{\dfrac{8V}{1K\Omega}+\dfrac{5V}{1K\Omega}-\dfrac{3V}{1K\Omega}}{\dfrac{1}{1K\Omega}+\dfrac{1}{1K\Omega}+\dfrac{1}{1K\Omega}+\dfrac{1}{10K\Omega}}=\dfrac{\dfrac{10V}{1K\Omega}}{\dfrac{31}{10K\Omega}}=\dfrac{10V \cdot 10K\Omega}{1K\Omega \cdot 31}= 3,22V$}
+\end{center}
+È possibile notare che la tensione misurata ai capi del resistore da $10 \, \text{k}\Omega$ risulta vicina al valore teorico calcolato con il teorema di Millman, confermandone la validità.\\
+Possiamo ora stimare la corrente di lato sul resistore da \(10 \, \text{k}\Omega\) applicando la legge di Kirchhoff ai nodi: 
+\[
+I_1 + I_2 + I_3 + I_{10\text{k}\Omega} = 0
+\]
+Con \(I_1\), \(I_2\) e \(I_3\) le correnti misurate rispettivamente nei tre rami e \(I_{10\text{k}\Omega}\) la corrente di lato nel resistore da \(10 \, \text{k}\Omega\), da cui:
+\[
+I_{10\text{k}\Omega} = -(1.7 \, \text{mA} + 4.7 \, \text{mA} - 6.05 \, \text{mA}) \longrightarrow I_{10\text{k}\Omega} = -0.35 \, \text{mA}
+\]
+
+
+
+Pertanto, la corrente di lato attraverso il resistore da \(10 \, \text{k}\Omega\) è: $I_{10\text{k}\Omega} = 0.35 \, \text{mA}$
+
+
+Questa corrente conferma il bilancio delle correnti nel nodo e rispetta la legge di Kirchhoff.
+
+\section{Esperimento 3: Legge di Ohm}
+\subsection{Procedura Sperimentale}
+Lo scopo dell’esercizio è quello di misurare il rapporto corrente/tensione riguardo al circuito in Figura 3, composto da un resistore da $500\Omega$ e da una tensione di Vs che assume valori diversi, i risultati delle misurazioni sono riportati in tabella.
+\begin{figure}[h]
+\begin{minipage}[t]{0.5\textwidth} % Regola la larghezza del minipage per il testo
+\vspace{0pt}
+    \raggedright % Allinea a sinistra
+    La tensione Vs viene generata da un alimentatore, mentre la corrente viene misurata mediante un multimetro configurato come amperometro, posizionato in serie al resistore. 
+\end{minipage}%
+\hspace{0.05\textwidth} % Spazio tra il testo e l'immagine
+\begin{minipage}[t]{0.15\textwidth} % Regola la larghezza del minipage per l'immagine
+\vspace{0pt}
+    \centering
+    \resizebox{1\textwidth}{!}{%
+\begin{center}
+    \begin{circuitikz}
+\tikzstyle{every node}=[font=\LARGE]
+\draw (8.75,18.5) to[battery1] (8.75,16);
+\draw (8.75,18.5) to[rmeter, t=A] (12.5,18.5);
+\draw (12.5,18.5) to[R] (12.5,16);
+\draw (8.75,16) to[short] (12.5,16);
+\draw (10.75,16) to (10.75,15.5) node[sground]{};
+\node [font=\LARGE] at (7.75,17.25) {$V_S$};
+\node [font=\LARGE] at (11.75,17.25) {$R_1$};
+\end{circuitikz}
+\end{center}
+   
+}%
+    \caption{}
+    \label{fig:circuito}
+\end{minipage}
+\end{figure} 
+
+\subsection{Risultati}
+\begin{figure}[ht]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \begin{tabular}{c|c|c|c}
+            \toprule
+            $V_s$ [V] & $I_s$ [mA] & $I_t$ [mA] & $\frac{I_s}{V_s}$ \\
+            \midrule
+            1    & 2.02  & 2    & 2.02  \\
+            2    & 4.04  & 4    & 2.02  \\
+            3    & 6.07  & 6    & 2.02  \\
+            4    & 8.08  & 8    & 2.02  \\
+            5    & 10.1  & 10   & 2.02  \\
+            6    & 12.1  & 12   & 2.02  \\
+            7    & 14.1  & 14   & 2.02  \\
+            8    & 16.2  & 16   & 2.02  \\
+            \bottomrule
+        \end{tabular}
+    \end{minipage}%
+    \hspace{0.05\textwidth}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{immagine1.jpg}
+        \caption{Grafico corrente-tensione con regressione lineare sui dati}
+        \label{fig:immagine}
+    \end{minipage}
+\end{figure}
+\subsection{Analisi e Discussione}
+Per la misura della corrente nel circuito (Is) vengono presi otto valori diversi di Vs variabili tra 1 e 8 V. La leggera variazione tra i valori misurati di corrente e quelli teorici (It) sono causati dal valore di tolleranza presente nel resistore in questione. Questi ultimi sono stati ottenuti applicando la legge di Ohm, secondo la quale il valore di corrente che attraversa il resistore è pari alla tensione a cui e sotto posto diviso la sua resistenza:
+\[
+    It=\frac{V_s}{R}
+\]
+Vediamo come, applicando la legge in questione, il rapporto tra corrente e tensione risulta sempre circa uguale a 2, questo perché esse sono legate da un rapporto di proporzionalità diretta. Il valore ricavato è chiamato conduttanza, si misura in siemens ed esprime l’attitudine di un conduttore ad essere percorso da corrente elettrica. 
+\section{Conclusioni}
+%bo figata lo rifarei solo per sentire le storie di contrabbando del daddy proibito
+Al termine dell’esperienza di laboratorio il gruppo ha sviluppato la capacità di operare in ambito elettrico, prendendo confidenza con quelli che sono i principali strumenti di lavoro, come ad esempio la breadboard, il generatore di tensione/corrente e il multimetro. Inoltre, è stato possibile verificare sperimentalmente i teoremi e le relazioni base tra i componenti visti a lezione. Durante la realizzazione dei vari circuiti non sono sorte particolari problematiche.
+\end{document}
