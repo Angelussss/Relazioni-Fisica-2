@@ -127,6 +127,13 @@ In questo caso, variando i valori di resistenza e capacità, essa rimane sempre 
 Nelle tabelle viene misurata la distanza in secondi tra segnale di ingresso e di uscita e il valore di tensione ai capi del condensatore nel tempo, dove vengono utilizzate rispettivamente nella prima $R = 10 k\ohm$ e $C = 100 nF$, mentre nella seconda $R = 200 k\ohm$ e $C = 5 nF$. Le misure vengono effettuate attraverso un oscilloscopio collegato al circuito mediante cavi di tipo bnc, spostando ogni volta gli appositi cursori. 
 Come è possibile notare dai dati raccolti, il valore di tensione diminuisce col passare del tempo in quanto il condensatore si sta scaricando. Nella seconda tabella si nota come il valore di tensione in uscita sia inferiore rispetto al precedente, ciò è dovuto ad un maggior valore di resistenza di $R$ che si va a sommare alla resistenza interna dell’oscilloscopio, andando a creare l’effetto partitore e diminuendo così la tensione di uscita.
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\linewidth]{es1.png}
+    \caption{Regressione lineare sui dati sperimentali misurati}
+    \label{fig:enter-label}
+\end{figure}
+
 \section{Esperimento 2: Risposta all’impulso del circuito RC}
 In questo esercizio si utilizza lo stesso circuito usato in precedenza, impostando però come segnale di ingresso un impulso di durata variabile ($100 \mu s$, $50 \mu s$ e $10 \mu s$) avente sempre frequenza $10Hz$, ampiezza picco-picco $Vpp = 5V$ e offset pari a $2.5V$.
 \begin{figure}[ht]
@@ -237,15 +244,24 @@ Le tre immagini rappresentano il segnale di uscita (segnale verde) e il segnale 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\linewidth]{es2.png}
-    \caption{Regressione lineare sui dati sperimetali misurati}
-    \label{fig:enter-label}
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{es2.png}
+        \caption{Regressione lineare sui dati sperimentali misurati}
+        \label{fig:enter-label}
+    \end{minipage}%
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        Tramite il calcolo della regressione lineare è possibile determinare la costante di tempo del circuito utilizzando la risposta all’impulso, analizzando la fase di scarica del condensatore. La legge che descrive tale comportamento è, come visto prima, di tipo esponenziale, quindi è necessario applicare il logaritmo naturale a entrambi i membri dell’equazione, ottenendo una relazione lineare tra $\ln(V(t))$ e $t$:
+
+        $$\ln(V(t)) = \ln(V_0) - \frac{t}{\tau}$$
+
+        In questa forma, il termine $-1/\tau$ rappresenta la pendenza $m$ della retta, mentre $\ln(V_0)$ è l’intercetta $c$. La regressione lineare consente quindi di stimare i parametri $m$ e $c$, dai quali è possibile ricavare la costante di tempo $\tau = -1/m$.
+
+        Si calcola quindi $\tau \approx 1 \,\text{ms}$, in accordo con il valore teorico calcolato dai parametri del circuito.
+    \end{minipage}
 \end{figure}
 
-Tramite il calcolo della regressione lineare è possibile determinare la costante di tempo del circuito utilizzando la risposta all’impulso, analizzando la fase di scarica del condensatore. La legge che descrive tale comportamento è, come visto prima, di tipo esponenziale, è quindi necessario applicare il logaritmo naturale a entrambi i membri dell’equazione, ottenendo una relazione lineare tra $\ln(V(t))$ e $t$:
-$$\ln(V(t)) = \ln(V_0) - \frac{t}{\tau}$$
-In questa forma, il termine $-1/\tau$ rappresenta la pendenza $m$ della retta, mentre $\ln(V_0)$ è l’intercetta $c$. La regressione lineare consente quindi di stimare i parametri $m$ e $c$, dai quali è possibile ricavare la costante di tempo $\tau = -1/m$.
-Si calcola quindi  $\tau \approx 1 $$, \text{ms}$, in accordo con il valore teorico calcolato dai parametri del circuito.
 
 
 %\section{ cosa fa rima con allegro }
@@ -256,9 +272,9 @@ Si calcola quindi  $\tau \approx 1 $$, \text{ms}$, in accordo con il valore teor
 
 \section{Esperimento 3: Diagramma ingresso-uscita circuito RC}
 Nel seguente esercizio viene sempre preso in analisi il circuito precedente con \( R = 10 \, \text{k}\Omega \) e \( C = 100 \, \text{nF} \), avente però come segnale di ingresso una sinusoide di ampiezza picco-picco \( 5 \, \text{V} \) e offset pari a zero, variando per ogni misura la frequenza da un minimo di \( 1 \, \text{Hz} \) fino ad un massimo di \( 200 \, \text{kHz} \).
-
-\begin{table}
+\begin{table}[H]
     \centering
+    \resizebox{0.4\textwidth}{!}{ % 80% della larghezza del testo
         \begin{tabular}{|c|c|c|c|}
         \hline
         Freq. & $\Delta x$ & $\Delta y$ & Sfasamento ($^\circ$) \\
@@ -282,9 +298,11 @@ Nel seguente esercizio viene sempre preso in analisi il circuito precedente con 
         200 kHz& 400 ns     & 2.5 V      & 28.8         \\
         \hline
         \end{tabular}
-    \caption{Tabella dei dati di frequenza, $\Delta x$, $\Delta y$ e    sfasamento in gradi.}
+    }
+    \caption{Tabella dei dati di frequenza, $\Delta x$, $\Delta y$ e sfasamento in gradi.}
     \label{tab:dati_sfasamento}
 \end{table}
+
 
 Dai dati raccolti è possibile verificare il comportamento del circuito, secondo i quali inizialmente i segnali di ingresso e di uscita non sono sfasati e presentano una tensione di picco-picco simile. Successivamente aumentando la frequenza i due segnali si discostano tra di loro con uno sfasamento crescente e un valore di tensione decrescente per il segnale di uscita misurato sul condensatore. La fase tra i due segnali, misurata attraverso gli appositi cursori dell’oscilloscopio in ms, è stata convertita in gradi ° mediante la seguente formula:
 $$\delta \degree= \delta [ms]T \cdot 360\degree$$
@@ -292,18 +310,20 @@ dove $\delta [ms]$ rappresenta lo sfasamento misurato e $T$ il periodo del segna
 Per quanto riguarda il guadagno fornito dal circuito, esso è stato ricavato attraverso il rapporto tra uscita $Vin - \delta y$ e ingresso $Vin = 5 V$. 
 
 \begin{figure}[h]
-    \begin{minipage}{0.5\textwidth}   
-        \centering
-        \includegraphics[width=0.8\linewidth]{guadagno_migliorato.png}
-        \caption{Diagramma di Bode del guadagno}
-        \label{fig:enter-label}
-    \end{minipage}%
-    \begin{minipage}{0.5\textwidth} 
-        \centering
-        \includegraphics[width=0.8\linewidth]{fase_migliorato.png}
-        \caption{Diagramma di Bode della fase}
-        \label{fig:enter-label}
-    \end{minipage}
+    \resizebox{\textwidth}{!}{
+        \begin{minipage}{0.5\textwidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{guadagno_migliorato.png}
+            \caption{Diagramma di Bode del guadagno}
+            \label{fig:gain-bode}
+        \end{minipage}%
+        \begin{minipage}{0.5\textwidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{fase_migliorato.png}
+            \caption{Diagramma di Bode della fase}
+            \label{fig:phase-bode}
+        \end{minipage}
+    }
 \end{figure}
 
 
