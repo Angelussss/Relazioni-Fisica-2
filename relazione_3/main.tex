@@ -1,0 +1,247 @@
+\input{preamble}
+\input{format}
+\input{commands}
+\begin{document}
+\setlist{itemsep=.5em}
+\begin{Huge}
+\textsf{\textbf{Fisica 2 (Teoria dei Circuiti)}}\\
+Esperienza 3 (tutto il contenuto e' da modificare)
+\end{Huge}
+
+\vspace{1ex}
+
+\textsf{\textbf{Studenti:}} \text{Angelo Perotti},  \text{Mattia Zagatti}, \text{Mattia Dolci}
+
+\vspace{2ex}
+
+\section{Introduzione}
+In questa esperienza viene analizzato il comportamento del circuito passa banda RLC, osservando il suo
+andamento prima nel dominio della frequenza attraverso lo sviluppo dei diagrammi di Bode e poi in quello
+del tempo.
+
+\section{Materiale utilizzato}
+\begin{itemize}
+    \item \textbf{Componenti elettronici}: resistori (\(1 \, \text{k}\Omega\), \(10 \, \text{k}\Omega\)), capacitori (\(1\text{nF}\) (\(10 \text{nF}\), \(100\text{nF}\)), decade di induttanze, breadboard.
+    \item \textbf{Strumenti di misura}: generatore di forme d'onda, oscilloscopio
+    \item \textbf{Cavi}: cavi bnc, cavi banana-banana, cavi jumper.
+\end{itemize}
+
+\section{circuito utilizzato}
+\begin{figure}[!ht]
+\centering %faccio un pane e nutella e torno %tranquillo amio <- cimelio storico
+\resizebox{0.45\textwidth}{!}{%
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\large]
+\draw (8.75,14.75) to[L ] (11.25,14.75);
+\draw (8.75,14.75) to[C] (7.5,14.75);
+\draw (11.25,14.75) to[R] (11.25,12.25);
+\draw (11.25,14.75) to[short, -o] (12.5,14.75) ;
+\draw (11.25,12.25) to[short, -o] (12.5,12.25) ;
+\draw (11.25,12.25) to (11.25,12) node[ground]{};
+\draw (7.5,12.25) to[short] (11.25,12.25);
+\draw (7.5,12.25) to[sinusoidal voltage source, sources/symbol/rotate=auto] (7.5,14.75);
+\node [font=\medium] at (7,13.75) {+};
+\node [font=\medium] at (7,13.25) {-};
+\node [font=\large] at (6.25,13.5) {$V_{in}(t)$};
+\node [font=\large] at (8.15,15.4) {C};
+\node [font=\large] at (10,15.25) {L};
+\node [font=\large] at (10.5,13.5) {R};
+\node [font=\large] at (13,13.5) {$V_{out}(t)$};
+\node [font=\large] at (13,14.75) {+};
+\node [font=\large] at (13,12.25) {-};
+\end{circuitikz}
+}%
+
+\label{fig:my_label}
+\end{figure}
+
+\section{Esperimento 1}
+
+In questo esercizio lo scopo è quello di analizzare il circuito nel dominio della frequenza, realizzando i relativi
+diagramma di Bode del modulo e della fase al variare della resistenza presente nel circuito. Esso è alimentato
+da un segnale sinusoidale di ampiezza picco-picco pari a 5 V e offset 0 V, ottenuto mediante un generatore di
+segnali collegato opportunamente alla breadboard mediante gli appositi doppietti. Gli altri componenti sono
+un resistore di valore 10 k$\ohm$ nel primo caso e 1 k$\ohm$ nel secondo, un condensatore di 10 nF e un induttore di
+500 mH. Questo valore di induttanza è stato introdotto all’interno del circuito non attraverso il classico bipolo
+ma con una decade di induttanza, regolando la manopola relativa all’ordine di grandezza appropriato.
+
+$$\huge R= 10k\ohm$$
+
+\begin{figure}[ht]
+\centering
+\begin{minipage}{0.5\textwidth}
+\centering
+\vspace{0pt}
+    \centering
+    \begin{tabular}{c|c|c|c}
+        f & $\Delta$ & A_{ing} & A_{usc}\\
+        \hline
+        1Hz & 84\degree & 5V & 4mV \\
+        \hline
+        1,15KHz & 45,3\degree & 5V & 3,34V \\
+        \hline
+        2Hz & 92\degree & 5V & 6,25mV\\
+        \hline
+        4,5V & 47\degree & 5V & 3,38V \\
+        \hline
+        5Hz & 91,4\degree & 5V & 15,73mV \\
+        \hline
+        10Hz & 89,8\degree & 5V & 30,4mV \\
+        \hline
+        20Hz & 89\degree & 5V & 60,55mV \\
+        \hline
+        50Hz & 87\degree & 5V & 152mv \\
+        \hline
+        100Hz & 86\degree & 5V & 304,2mV \\
+        \hline
+        200Hz & 81\degree & 5V & 602,5mV \\
+        \hline
+        500Hz & 70\degree & 5V & 1,5V \\
+        \hline
+        1KHz & 51\degree & 5V & 2,93V \\
+        \hline
+        2KHz & 9,8\degree & 5V & 4,69V \\
+        \hline
+        2,25Khz & 0\degree & 5V & 4,77V \\
+        \hline
+        5Khz & -53,4\degree & 5V & 3,07V \\
+        \hline
+        10Khz & -77\degree & 5V & 1,5V \\
+        \hline
+        50KHz & - & 5V & - \\
+    \end{tabular}
+    \caption{}
+    \label{tab:my_label}
+\label{fig:my_label}
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+\centering
+\vspace{0pt}
+
+Utilizzando un valore di R pari a 10 k$\ohm$, le misure sono state effettuate variando il valore di frequenza del
+segnale in ingresso da un minimo di 1 Hz a un massimo di 10 kHz. Oltre a queste 13 misure, vengono
+considerate altre tre frequenze: i due valori corrispondente ad un guadagno di -3 dB rispetto al suo massimo
+e la frequenza di risonanza. Le prime sono state ottenute calcolando il guadagno a -3 dB, ottenuto
+considerando il valore massimo di ampiezza del segnale di uscita misurato ai capi del resistore (4.77 V) diviso
+la radice di 2:
+
+$$A_{\epsilon dB} = \dfrac{A_{max}}{\sqrt{2}}=\dfrac{4,77V}{\sqrt{2}}=3,37V$$
+
+Successivamente, si regola la frequenza dal generatore di segnali fino a quando non si ottiene un valore di
+tensione paragonabile, in questo caso f1 = 1.15 kHz e f2 = 4.5 kHz.
+Per quanto riguarda la frequenza di risonanza, essa è stata ricavata considerando prima il valore della
+pulsazione in questione e poi dividendo per 2$\pi$:
+
+$$\omega_0=\dfrac{1}{\sqrt{LC}}=14142\dfrac{rad}{s}$$
+$$f_0=\dfrac{\omega_o}{2\pi}=2.25kHz$$
+
+Per misurare l’ampiezza e lo sfasamento sull’oscilloscopio sono stati utilizzati gli appositi cursori, variando
+opportunamente la scala dei tempi e dell’ampiezza.
+
+ \end{minipage}
+\end{figure}
+
+*FOTO DIAGRAMMI DI BODE GUADAGNO E FASE*
+I diagrammi di Bode sono stati realizzati utilizzando i dati raccolti in laboratorio (vedi tabella), facendo
+attenzione allo sfasamento tra i due segnali ed effettuando la seguente conversione:
+\begin{center}
+    
+
+$\Delta\O[rad]=\dfrac{\Delta t}{T}\cdot 2\pi$
+\end{center}
+Come è possibile notare, i risultati ottenuti sono coerenti con il comportamento passa-banda del circuito,
+secondo il quale si ha un guadagno massimo( G = $\dfrac{A_{out}}{A_{in}}$) in corrispondenza della frequenza di risonanza,
+mentre il segnale di uscita viene particolarmente attenuato a frequenze maggiori rispetto a 10 $f_0$ e inferiori rispetto a 0.1 $f_0$ .
+
+r=1k
+In questo caso vengono ripetute le misure precedenti modificando il valore di R, andando perciò a variare il
+valore di tensione massima e di conseguenza le frequenze corrispondenti ad un valore di ampiezza inferiore
+di 3 dB rispetto a quello massimo, mentre la frequenza di risonanza rimane invariata in quanto i valori di
+capacità e induttanza sono invariati. Le misure a 1 e 2 Hz non sono state effettuate in quando il segnale di
+uscita in quel punto era molto attenuato e non era quindi osservabile all’oscilloscopio.
+
+
+$$A_{3dB}=\dfrac{3.37V}{\sqrt{2}}=2.38V$$
+foto diagrammi bode
+
+Rispetto al caso precedente si nota come i valori di tensione misurati non rispecchiano perfettamente quelli
+attesi, in particolar modo il valore massimo del segnale in uscita (3.37 V) è decisamente inferiore rispetto a
+quello misurato con R = 10 k$\omega$ (4.77 V), e di conseguenza anche i valori relativi allo sfasamento. Ciò è causato
+dal fatto che, avendo in questo caso un valore di resistenza più basso, esso è paragonabile al valore della
+resistenza parassita presente in serie all’induttore a causa del suo comportamento reale
+
+
+\begin{figure}[!ht]
+\centering %faccio un pane e nutella e torno %tranquillo amio <- cimelio storico
+\resizebox{0.45\textwidth}{!}{%
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\large]
+\draw (8.75,14.75) to[L ] (10,14.75);
+\draw (8.75,14.75) to[C] (7.5,14.75);
+\draw (11.25,14.75) to[R] (11.25,12.25);
+\draw (11.25,14.75) to[short, -o] (12.5,14.75) ;
+\draw (11.25,12.25) to[short, -o] (12.5,12.25) ;
+\draw (11.25,12.25) to (11.25,12) node[ground]{};
+\draw (7.5,12.25) to[short] (11.25,12.25);
+\draw (7.5,12.25) to[sinusoidal voltage source, sources/symbol/rotate=auto] (7.5,14.75);
+\node [font=\medium] at (7,13.75) {+};
+\node [font=\medium] at (7,13.25) {-};
+\node [font=\large] at (6.25,13.5) {$V_{in}(t)$};
+\node [font=\large] at (8.15,15.4) {C};
+\node [font=\large] at (9.4,15.25) {L};
+\node [font=\large] at (10.5,13.5) {R};
+\node [font=\large] at (13,13.5) {$V_{out}(t)$};
+\node [font=\large] at (13,14.75) {+};
+\node [font=\large] at (13,12.25) {-};
+\draw (10,14.75) to[R] (11.25,14.75);
+\node [font=\large] at (10.5,15.25) {Ri};
+\end{circuitikz}
+}%
+
+\label{fig:my_label}
+\end{figure}
+
+\label{fig:my_label}
+\end{figure}
+
+\centering
+    \begin{tabular}{c|c|c|c}
+        f & $\Delta$ & A_{ing} & A_{usc}\\
+        \hline
+        1Hz & - & 5V & - \\
+        \hline
+        \hline
+        2Hz & - & 5V & -\\
+        \hline
+        5Hz & - & 5V & - \\
+        \hline
+        10Hz & 88\degree & 5V & 3,3mV \\
+        \hline
+        20Hz & 89\degree & 5V & 6,3mV \\
+        \hline
+        50Hz & 90\degree & 5V & 15,3mv \\
+        \hline
+        100Hz & 89\degree & 5V & 36,6mV \\
+        \hline
+        200Hz & 88\degree & 5V & 61mV \\
+        \hline
+        500Hz & 86,7\degree & 5V & 161mV \\
+        \hline
+        1KHz & 83\degree & 5V & 373mV \\
+        \hline
+        2KHz & 48\degree & 5V & 4,69V \\
+        \hline
+        2,25Khz & 0\degree & 5V & 4,77V \\
+        \hline
+        5Khz & -53,4\degree & 5V & 3,07V \\
+        \hline
+        10Khz & -77\degree & 5V & 1,5V \\
+        \hline
+        50KHz & - & 5V & - \\
+    \end{tabular}
+    \caption{}
+    \label{tab:my_label}
+
+
+
+\end{document}
