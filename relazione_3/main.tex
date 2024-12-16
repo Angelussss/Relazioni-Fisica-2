@@ -5,7 +5,7 @@
 \setlist{itemsep=.5em}
 \begin{Huge}
 \textsf{\textbf{Fisica 2 (Teoria dei Circuiti)}}\\
-Esperienza 3 (tutto il contenuto e' da modificare)
+Esperienza 3 
 \end{Huge}
 
 \vspace{1ex}
@@ -231,38 +231,6 @@ quello misurato con R = 10 k$\omega$ (4.77 V), e di conseguenza anche i valori r
 dal fatto che, avendo in questo caso un valore di resistenza più basso, esso è paragonabile al valore della
 resistenza parassita presente in serie all’induttore a causa del suo comportamento reale:
 
-
-Per stimare il suo valore, si considera un guadagno unitario del circuito ponendo a 0 i valori di capacità e di induttanza in modo da ottenere come unico elemento la serie tra il resistore R e la resistenza parassita Rl. Così facendo è possibile trovare il valore di tensione ai capi di Rl attraverso la legge di Kirchhoff delle maglie e successivamente la resistenza mediante la legge di Ohm (Vin = 5V, Vout = 3.37 V):
-
-$$V_{Rl} = V_\text{in}-V_\text{out}=(5-3.37)V=1.63V$$
-
-$$I=\frac{V_\text{out}}{R}=3.37mA$$
-
-$$Rl = \frac{V_\text{Rl}}{I}=484\ohm$$
-
-In questa esperienza dunque è stato appreso il concetto di resistenza parassita, che oltre a caratterizzare strumenti come oscilloscopi e multimetri, è caratteristica di qualsiasi oggetto presente nella realtà in quanto essi non rispettano le caratteristiche ideali secondo le quali solo i resistori offrono un valore di resistenza nel circuito.
-
-\section{Esercizio 2}
-Il secondo esercizio richiedeva di verificare il funzionamento del circuito RLC utilizzando come ingresso una forma d'onda quadra di frequenza 10Hz e tensione picco=picco di $V_\text{in}^\text{pp}=2.5V$, con offset $V_\text{in}^\text{of}=1.25V$, con varie combinazioni di R, L e C.
-
-La risposta del circuito dipende dalla frequenza naturale del sistema, ossia la frequenza alla quale il circuito tenderebbe a oscillare se fosse lasciato libero, senza influenze esterne. Questa frequenza dipende dai valori di LL (induttore) e CC (condensatore) secondo la relazione:
-
-$$f_0=\frac{1}{(2\pi\sqrt{LC})}$$
-
-A questa frequenza, l’energia si scambia tra l’induttore (energia magnetica) e il condensatore (energia elettrica). Il valore di $R$, invece, introduce uno smorzamento che influisce sull’ampiezza delle oscillazioni nel tempo e modifica leggermente la frequenza effettiva delle oscillazioni, chiamata frequenza di oscillazione smorzata ($f_d$).
-Il comportamento del circuito varia quindi come segue:
-\begin{itemize}
-    \item \textbf{Per valori crescenti di $L$}: un induttore più grande rallenta gli scambi energetici, riducendo la frequenza naturale $f_0$. Questo rende il circuito più lento a rispondere, con oscillazioni che avvengono a frequenze più basse.
-     \item \textbf{Per valori crescenti di $C$}: un condensatore più grande consente di accumulare più carica, riducendo anch’esso la frequenza naturale $f_0$. Un CC elevato rende il circuito più dominato dalla reattanza capacitiva.
-     \item \textbf{Per valori crescenti di $R$}: il valore della resistenza determina il grado di smorzamento del sistema. Se $R$ è basso, il circuito risponde in modo oscillatorio (regime sotto-smorzato), con oscillazioni persistenti ma a poco a poco attenuate. Al contrario, se $R$ è alto, il circuito diventa sovra-smorzato e la risposta non mostra oscillazioni ma solo un lento ritorno all’equilibrio.\\
-     In generale, il circuito RLC serie può essere visto come un sistema in grado di oscillare con caratteristiche determinate da $L$ e $C$, mentre $R$ controlla l’attenuazione e la durata delle oscillazioni. Quando la resistenza è moderata, il circuito è \textbf{sotto-smorzato}, e le oscillazioni si verificano a una frequenza $\omega_d$ data da:
-     $$\omega_d = \sqrt{\frac{1}{LC}-\frac{R}{LC})^2}$$
-     La frequenza smorzata $f_d=\omega_d/(2\pi)$ è leggermente inferiore a quella naturale $f_0$, ma per valori di $R$ non troppo elevati, questa differenza è trascurabile.
-\end{itemize}
-\label{fig:my_label}
-\end{figure}
-
-
 \begin{figure}[!ht]
 \centering %faccio un pane e nutella e torno %tranquillo amio <- cimelio storico
 \resizebox{0.35\textwidth}{!}{%
@@ -294,6 +262,97 @@ Il comportamento del circuito varia quindi come segue:
 \end{figure}
 
 
+Per stimare il suo valore, si considera un guadagno unitario del circuito ponendo a 0 i valori di capacità e di induttanza in modo da ottenere come unico elemento la serie tra il resistore R e la resistenza parassita Rl. Così facendo è possibile trovare il valore di tensione ai capi di Rl attraverso la legge di Kirchhoff delle maglie e successivamente la resistenza mediante la legge di Ohm (Vin = 5V, Vout = 3.37 V):
+
+$$V_{Rl} = V_\text{in}-V_\text{out}=(5-3.37)V=1.63V$$
+
+$$I=\frac{V_\text{out}}{R}=3.37mA$$
+
+$$Rl = \frac{V_\text{Rl}}{I}=484\ohm$$
+
+In questa esperienza dunque è stato appreso il concetto di resistenza parassita, che oltre a caratterizzare strumenti come oscilloscopi e multimetri, è caratteristica di qualsiasi oggetto presente nella realtà in quanto essi non rispettano le caratteristiche ideali secondo le quali solo i resistori offrono un valore di resistenza nel circuito.
+
+\section{Esercizio 2}
+Il secondo esercizio richiedeva di verificare il funzionamento del circuito RLC utilizzando come ingresso una forma d'onda quadra di frequenza 10Hz e tensione picco=picco di $V_\text{in}^\text{pp}=2.5V$, con offset $V_\text{in}^\text{of}=1.25V$, con varie combinazioni di R, L e C.
+
+La risposta del circuito dipende dalla frequenza naturale del sistema, ossia la frequenza alla quale il circuito tenderebbe a oscillare se fosse lasciato libero, senza influenze esterne. Questa frequenza dipende dai valori di LL (induttore) e CC (condensatore) secondo la relazione:
+
+$$f_0=\frac{1}{(2\pi\sqrt{LC})}$$
+
+A questa frequenza, l’energia si scambia tra l’induttore (energia magnetica) e il condensatore (energia elettrica). Il valore di $R$, invece, introduce uno smorzamento che influisce sull’ampiezza delle oscillazioni nel tempo e modifica leggermente la frequenza effettiva delle oscillazioni, chiamata frequenza di oscillazione smorzata ($f_d$).
+Il comportamento del circuito varia quindi come segue:
+\begin{itemize}
+    \item \textbf{Per valori crescenti di $L$}: un induttore più grande rallenta gli scambi energetici, riducendo la frequenza naturale $f_0$. Questo rende il circuito più lento a rispondere, con oscillazioni che avvengono a frequenze più basse.
+     \item \textbf{Per valori crescenti di $C$}: un condensatore più grande consente di accumulare più carica, riducendo anch’esso la frequenza naturale $f_0$. Un CC elevato rende il circuito più dominato dalla reattanza capacitiva.
+     \item \textbf{Per valori crescenti di $R$}: il valore della resistenza determina il grado di smorzamento del sistema. Se $R$ è basso, il circuito risponde in modo oscillatorio (regime sotto-smorzato), con oscillazioni persistenti ma a poco a poco attenuate. Al contrario, se $R$ è alto, il circuito diventa sovra-smorzato e la risposta non mostra oscillazioni ma solo un lento ritorno all’equilibrio.\\
+     In generale, il circuito RLC serie può essere visto come un sistema in grado di oscillare con caratteristiche determinate da $L$ e $C$, mentre $R$ controlla l’attenuazione e la durata delle oscillazioni. Quando la resistenza è moderata, il circuito è \textbf{sotto-smorzato}, e le oscillazioni si verificano a una certa pulsazione $\omega_d$. 
+     La frequenza smorzata $f_d=\omega_d/(2\pi)$ è leggermente inferiore a quella naturale $f_0$, ma per valori di $R$ non troppo elevati, questa differenza è trascurabile.
+\end{itemize}
+\label{fig:my_label}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}[t]{0.33\textwidth} % Prima immagine
+        \includegraphics[width=0.9\linewidth]{dajeroma1.jpeg}
+        \captionsetup{justification=raggedright, singlelinecheck=false, labelformat=empty}
+        \caption{$R=10k\ohm, L=500mH, C=1nF$}
+        \label{fig:img1}
+    \end{minipage}%
+    \hfill % Spaziatura uniforme tra le minipage
+    \begin{minipage}[t]{0.33\textwidth} % Seconda immagine
+        \centering
+        \includegraphics[width=0.9\linewidth]{dajeroma2.jpeg}
+        \captionsetup{justification=raggedright, singlelinecheck=false, labelformat=empty}
+        \caption{$R=10k\ohm, L=500mH, C=10nF$}
+        \label{fig:img2}
+    \end{minipage}%
+    \hfill % Spaziatura uniforme tra le minipage
+    \begin{minipage}[t]{0.33\textwidth} % Terza immagine
+        \centering
+        \includegraphics[width=0.9\linewidth]{dajeroma3.jpeg}
+        \captionsetup{justification=raggedright, singlelinecheck=false, labelformat=empty}
+        \caption{$R=10k\ohm, L=100mH, C=10nF$}
+        \label{fig:img3}
+    \end{minipage}
+\end{figure}
+
+Per il calcolo della frequenza di oscillazione nel primo caso si considera il periodo del segnale in questione, ottenuto spostando opportunamente gli appositi cursori dell’oscilloscopio, infine da esso si ricava il rispettivo valore di frequenza: 
+
+$$T=0.143ms \hspace{30} f=\frac{1}{T}=7kHz$$
+
+Successivamente, si confronta il valore di frequenza ottenuto sperimentalmente con quello ottenuto mediante le formule viste in precedenza e si nota come i due risultati coincidono:
+
+$$\omega_0=\frac{1}{\sqrt{LC}}=44721\hpsace{30} f_0=\frac{\omega_0}{2\pi}=7.12kHz$$
+
+In questa seconda esperienza è stato visto come, mettendo in ingresso un segnale ad onda quadra, il valore di uscita cambia variando resistenza, capacità e induttanza all’interno del circuito. In particolare, nel caso sotto-smorzato l’uscita è di tipo sinusoidale, mentre nel caso criticamente smorzato è di tipo esponenziale.
+
+%ci avevo provato anche io
+
+%eh ma sono troppo swaggg <- <3
+%ho aggiunto una foto assolutamente essenziale
+%odio i froci
+
+
+
+%ez
+%fortissimo
+
+%boh io qua sinceramente non ho idea
+%ma non ho capito, che sta da aggiungere? ciao mirko
+%eh tipo tutto il punto 2.2 ma non so
+%idk anche perche' abbiamo poco tempo
+%amore mio, sono mirko.<-(smash) devo fare la relazione a mattia. cosa devo fare?
+%non lo so manco io
+%ti raidiamo casa, lol (penso stiano scherzando, ma te lo dico per il meme)
+%a bo io sono qua
+
+%dio negro, mattia non è molto utile. Non capisco che merda deve fare dio divoratore di peni persiani (dio stramaleddetto negro, non so come scrivere)
+
+%la mia nuova bestemmia preferita e' dio orso che mangia la madonna salmonata
+
+
+%ok dopo un aneurisma cerebrale credo di aver fatto dio mastrolindo
 \label{fig:my_label}
 \end{figure}
 \end{document}
