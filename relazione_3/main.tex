@@ -26,7 +26,7 @@ del tempo.
     \item \textbf{Cavi}: cavi bnc, cavi banana-banana, cavi jumper.
 \end{itemize}
 
-\section{circuito utilizzato}
+\section{Circuito utilizzato}
 \begin{figure}[!ht]
 \centering %faccio un pane e nutella e torno %tranquillo amio <- cimelio storico
 \resizebox{0.45\textwidth}{!}{%
@@ -55,18 +55,23 @@ del tempo.
 \label{fig:my_label}
 \end{figure}
 
-\section{Esperimento 1}
+\section{Esercizio 1}
 
 In questo esercizio lo scopo è quello di analizzare il circuito nel dominio della frequenza, realizzando i relativi
-diagramma di Bode del modulo e della fase al variare della resistenza presente nel circuito. Esso è alimentato
+diagrammi di Bode del modulo e della fase al variare della resistenza presente nel circuito. Esso è alimentato
 da un segnale sinusoidale di ampiezza picco-picco pari a 5 V e offset 0 V, ottenuto mediante un generatore di
 segnali collegato opportunamente alla breadboard mediante gli appositi doppietti. Gli altri componenti sono
 un resistore di valore 10 k$\ohm$ nel primo caso e 1 k$\ohm$ nel secondo, un condensatore di 10 nF e un induttore di
 500 mH. Questo valore di induttanza è stato introdotto all’interno del circuito non attraverso il classico bipolo
 ma con una decade di induttanza, regolando la manopola relativa all’ordine di grandezza appropriato.
 
-$$\huge R= 10k\ohm$$
-
+\subsection{R= 10k\ohm}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\linewidth]{bode1.png}
+    \caption{Diagrammi di bode}
+    \label{fig:enter-label}
+\end{figure}
 \begin{figure}[ht]
 \centering
 \begin{minipage}{0.5\textwidth}
@@ -110,7 +115,7 @@ $$\huge R= 10k\ohm$$
         \hline
         50KHz & - & 5V & - \\
     \end{tabular}
-    \caption{}
+    \caption{RLC con resistenza 10k\ohm}
     \label{tab:my_label}
 \label{fig:my_label}
 \end{minipage}%
@@ -118,8 +123,7 @@ $$\huge R= 10k\ohm$$
 \centering
 \vspace{0pt}
 
-Utilizzando un valore di R pari a 10 k$\ohm$, le misure sono state effettuate variando il valore di frequenza del
-segnale in ingresso da un minimo di 1 Hz a un massimo di 10 kHz. Oltre a queste 13 misure, vengono
+Oltre a queste 13 misure, vengono
 considerate altre tre frequenze: i due valori corrispondente ad un guadagno di -3 dB rispetto al suo massimo
 e la frequenza di risonanza. Le prime sono state ottenute calcolando il guadagno a -3 dB, ottenuto
 considerando il valore massimo di ampiezza del segnale di uscita misurato ai capi del resistore (4.77 V) diviso
@@ -141,8 +145,7 @@ opportunamente la scala dei tempi e dell’ampiezza.
  \end{minipage}
 \end{figure}
 
-*FOTO DIAGRAMMI DI BODE GUADAGNO E FASE*
-I diagrammi di Bode sono stati realizzati utilizzando i dati raccolti in laboratorio (vedi tabella), facendo
+I diagrammi di Bode (Figura 1) sono stati realizzati utilizzando i dati raccolti in laboratorio (Figura 2), facendo
 attenzione allo sfasamento tra i due segnali ed effettuando la seguente conversione:
 \begin{center}
     
@@ -151,32 +154,120 @@ $\Delta\O[rad]=\dfrac{\Delta t}{T}\cdot 2\pi$
 \end{center}
 Come è possibile notare, i risultati ottenuti sono coerenti con il comportamento passa-banda del circuito,
 secondo il quale si ha un guadagno massimo( G = $\dfrac{A_{out}}{A_{in}}$) in corrispondenza della frequenza di risonanza,
-mentre il segnale di uscita viene particolarmente attenuato a frequenze maggiori rispetto a 10 $f_0$ e inferiori rispetto a 0.1 $f_0$ .
+mentre il segnale di uscita viene particolarmente attenuato a frequenze maggiori rispetto a 10 $f_0$ e inferiori rispetto a 0.1 $f_0$.
 
-r=1k
-In questo caso vengono ripetute le misure precedenti modificando il valore di R, andando perciò a variare il
-valore di tensione massima e di conseguenza le frequenze corrispondenti ad un valore di ampiezza inferiore
-di 3 dB rispetto a quello massimo, mentre la frequenza di risonanza rimane invariata in quanto i valori di
-capacità e induttanza sono invariati. Le misure a 1 e 2 Hz non sono state effettuate in quando il segnale di
-uscita in quel punto era molto attenuato e non era quindi osservabile all’oscilloscopio.
+Utilizzando un valore di R pari a 10 k$\ohm$, le misure sono state effettuate variando il valore di frequenza del
+segnale in ingresso da un minimo di 1 Hz a un massimo di 10 kHz.
+
+\subsection{R= 1k$\ohm$}
 
 
-$$A_{3dB}=\dfrac{3.37V}{\sqrt{2}}=2.38V$$
-foto diagrammi bode
+\begin{figure}[H] % Usa H per mantenere la posizione della figura
+    \centering
+    \begin{minipage}[t]{0.5\textwidth} % Allineamento in alto
+        \centering
+        \vspace{0pt} % Per evitare spazi verticali aggiuntivi
+        \begin{tabular}{c|c|c|c}
+            f & $\Delta$ & A_{ing} & A_{usc} \\
+            \hline
+            1Hz & - & 5V & - \\
+            \hline
+            2Hz & - & 5V & - \\
+            \hline
+            2,03Hz & 45\degree & 5V & 2,4V \\
+            \hline
+            2,48Hz & 46\degree & 5V & 2,37V \\
+            \hline
+            5Hz & - & 5V & - \\
+            \hline
+            10Hz & 88\degree & 5V & 3,3mV \\
+            \hline
+            20Hz & 89\degree & 5V & 6,3mV \\
+            \hline
+            50Hz & 90\degree & 5V & 15,3mv \\
+            \hline
+            100Hz & 89\degree & 5V & 36,6mV \\
+            \hline
+            200Hz & 88\degree & 5V & 61mV \\
+            \hline
+            500Hz & 86,7\degree & 5V & 161mV \\
+            \hline
+            1KHz & 83\degree & 5V & 373mV \\
+            \hline
+            2KHz & 49,7\degree & 5V & 2,23V \\
+            \hline
+            5Khz & -85\degree & 5V & 383mV \\
+            \hline
+            10Khz & -88,6\degree & 5V & 155mV \\
+            \hline
+            50KHz & - & 5V & - \\
+        \end{tabular}
+        \caption{RLC con resistenza 1k$\ohm$}
+        \label{tab:my_label}
+    \end{minipage}%
+    \begin{minipage}[t]{0.5\textwidth} % Allineamento in alto
+        \centering
+        \vspace{0pt} % Per evitare spazi verticali aggiuntivi
+        In questo caso vengono ripetute le misure precedenti modificando il valore di R, andando perciò a variare il
+        valore di tensione massima e di conseguenza le frequenze corrispondenti ad un valore di ampiezza inferiore
+        di 3 dB rispetto a quello massimo, mentre la frequenza di risonanza rimane invariata in quanto i valori di
+        capacità e induttanza sono invariati. Le misure a 1 e 2 Hz non sono state effettuate in quando il segnale di
+        uscita in quel punto era molto attenuato e non era quindi osservabile all’oscilloscopio.
+
+        $$A_{3dB}=\dfrac{3.37V}{\sqrt{2}}=2.38V$$
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{bode2.png}
+    \caption{Diagrammi di Bode}
+    \label{fig:enter-label}
+\end{figure}
 
 Rispetto al caso precedente si nota come i valori di tensione misurati non rispecchiano perfettamente quelli
 attesi, in particolar modo il valore massimo del segnale in uscita (3.37 V) è decisamente inferiore rispetto a
 quello misurato con R = 10 k$\omega$ (4.77 V), e di conseguenza anche i valori relativi allo sfasamento. Ciò è causato
 dal fatto che, avendo in questo caso un valore di resistenza più basso, esso è paragonabile al valore della
-resistenza parassita presente in serie all’induttore a causa del suo comportamento reale
+resistenza parassita presente in serie all’induttore a causa del suo comportamento reale:
+
+
+Per stimare il suo valore, si considera un guadagno unitario del circuito ponendo a 0 i valori di capacità e di induttanza in modo da ottenere come unico elemento la serie tra il resistore R e la resistenza parassita Rl. Così facendo è possibile trovare il valore di tensione ai capi di Rl attraverso la legge di Kirchhoff delle maglie e successivamente la resistenza mediante la legge di Ohm (Vin = 5V, Vout = 3.37 V):
+
+$$V_{Rl} = V_\text{in}-V_\text{out}=(5-3.37)V=1.63V$$
+
+$$I=\frac{V_\text{out}}{R}=3.37mA$$
+
+$$Rl = \frac{V_\text{Rl}}{I}=484\ohm$$
+
+In questa esperienza dunque è stato appreso il concetto di resistenza parassita, che oltre a caratterizzare strumenti come oscilloscopi e multimetri, è caratteristica di qualsiasi oggetto presente nella realtà in quanto essi non rispettano le caratteristiche ideali secondo le quali solo i resistori offrono un valore di resistenza nel circuito.
+
+\section{Esercizio 2}
+Il secondo esercizio richiedeva di verificare il funzionamento del circuito RLC utilizzando come ingresso una forma d'onda quadra di frequenza 10Hz e tensione picco=picco di $V_\text{in}^\text{pp}=2.5V$, con offset $V_\text{in}^\text{of}=1.25V$, con varie combinazioni di R, L e C.
+
+La risposta del circuito dipende dalla frequenza naturale del sistema, ossia la frequenza alla quale il circuito tenderebbe a oscillare se fosse lasciato libero, senza influenze esterne. Questa frequenza dipende dai valori di LL (induttore) e CC (condensatore) secondo la relazione:
+
+$$f_0=\frac{1}{(2\pi\sqrt{LC})}$$
+
+A questa frequenza, l’energia si scambia tra l’induttore (energia magnetica) e il condensatore (energia elettrica). Il valore di $R$, invece, introduce uno smorzamento che influisce sull’ampiezza delle oscillazioni nel tempo e modifica leggermente la frequenza effettiva delle oscillazioni, chiamata frequenza di oscillazione smorzata ($f_d$).
+Il comportamento del circuito varia quindi come segue:
+\begin{itemize}
+    \item \textbf{Per valori crescenti di $L$}: un induttore più grande rallenta gli scambi energetici, riducendo la frequenza naturale $f_0$. Questo rende il circuito più lento a rispondere, con oscillazioni che avvengono a frequenze più basse.
+     \item \textbf{Per valori crescenti di $C$}: un condensatore più grande consente di accumulare più carica, riducendo anch’esso la frequenza naturale $f_0$. Un CC elevato rende il circuito più dominato dalla reattanza capacitiva.
+     \item \textbf{Per valori crescenti di $R$}: il valore della resistenza determina il grado di smorzamento del sistema. Se $R$ è basso, il circuito risponde in modo oscillatorio (regime sotto-smorzato), con oscillazioni persistenti ma a poco a poco attenuate. Al contrario, se $R$ è alto, il circuito diventa sovra-smorzato e la risposta non mostra oscillazioni ma solo un lento ritorno all’equilibrio.\\
+     In generale, il circuito RLC serie può essere visto come un sistema in grado di oscillare con caratteristiche determinate da $L$ e $C$, mentre $R$ controlla l’attenuazione e la durata delle oscillazioni. Quando la resistenza è moderata, il circuito è \textbf{sotto-smorzato}, e le oscillazioni si verificano a una frequenza $\omega_d$ data da:
+     $$\omega_d = \sqrt{\frac{1}{LC}-\frac{R}{LC})^2}$$
+     La frequenza smorzata $f_d=\omega_d/(2\pi)$ è leggermente inferiore a quella naturale $f_0$, ma per valori di $R$ non troppo elevati, questa differenza è trascurabile.
+\end{itemize}
+\label{fig:my_label}
+\end{figure}
 
 
 \begin{figure}[!ht]
 \centering %faccio un pane e nutella e torno %tranquillo amio <- cimelio storico
-\resizebox{0.45\textwidth}{!}{%
+\resizebox{0.35\textwidth}{!}{%
 \begin{circuitikz}
 \tikzstyle{every node}=[font=\large]
-\draw (8.75,14.75) to[L ] (10,14.75);
 \draw (8.75,14.75) to[C] (7.5,14.75);
 \draw (11.25,14.75) to[R] (11.25,12.25);
 \draw (11.25,14.75) to[short, -o] (12.5,14.75) ;
@@ -184,64 +275,25 @@ resistenza parassita presente in serie all’induttore a causa del suo comportam
 \draw (11.25,12.25) to (11.25,12) node[ground]{};
 \draw (7.5,12.25) to[short] (11.25,12.25);
 \draw (7.5,12.25) to[sinusoidal voltage source, sources/symbol/rotate=auto] (7.5,14.75);
+\draw (8.75,14.75) to[L ] (10,14.75);
+\node [font=\large] at (12,14.75) {};
+\draw (10,14.75) to[R] (11.25,14.75);
 \node [font=\medium] at (7,13.75) {+};
 \node [font=\medium] at (7,13.25) {-};
 \node [font=\large] at (6.25,13.5) {$V_{in}(t)$};
 \node [font=\large] at (8.15,15.4) {C};
-\node [font=\large] at (9.4,15.25) {L};
+\node [font=\large] at (9.35,15.25) {L};
+\node [font=\large] at (10.7,15.25) {Rl};
 \node [font=\large] at (10.5,13.5) {R};
 \node [font=\large] at (13,13.5) {$V_{out}(t)$};
 \node [font=\large] at (13,14.75) {+};
 \node [font=\large] at (13,12.25) {-};
-\draw (10,14.75) to[R] (11.25,14.75);
-\node [font=\large] at (10.5,15.25) {Ri};
 \end{circuitikz}
 }%
-
 \label{fig:my_label}
 \end{figure}
 
+
 \label{fig:my_label}
 \end{figure}
-
-\centering
-    \begin{tabular}{c|c|c|c}
-        f & $\Delta$ & A_{ing} & A_{usc}\\
-        \hline
-        1Hz & - & 5V & - \\
-        \hline
-        \hline
-        2Hz & - & 5V & -\\
-        \hline
-        5Hz & - & 5V & - \\
-        \hline
-        10Hz & 88\degree & 5V & 3,3mV \\
-        \hline
-        20Hz & 89\degree & 5V & 6,3mV \\
-        \hline
-        50Hz & 90\degree & 5V & 15,3mv \\
-        \hline
-        100Hz & 89\degree & 5V & 36,6mV \\
-        \hline
-        200Hz & 88\degree & 5V & 61mV \\
-        \hline
-        500Hz & 86,7\degree & 5V & 161mV \\
-        \hline
-        1KHz & 83\degree & 5V & 373mV \\
-        \hline
-        2KHz & 48\degree & 5V & 4,69V \\
-        \hline
-        2,25Khz & 0\degree & 5V & 4,77V \\
-        \hline
-        5Khz & -53,4\degree & 5V & 3,07V \\
-        \hline
-        10Khz & -77\degree & 5V & 1,5V \\
-        \hline
-        50KHz & - & 5V & - \\
-    \end{tabular}
-    \caption{}
-    \label{tab:my_label}
-
-
-
 \end{document}
